@@ -37,4 +37,9 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
+    public Page<Board> boardSearchList(String searchKeyword, Pageable pageable) {
+
+        return boardRepository.findByTitleContaining(searchKeyword, pageable);
+    }
+
 }
